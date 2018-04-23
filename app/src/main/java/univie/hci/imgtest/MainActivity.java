@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
             Log.w("SeatInfo", "NO SEAT GOT CLICKED!");
+            debug.setText("you selected none");
         }
         Log.w("Info", "touchX " + touchX);
         Log.w("Info", "touchY " + touchY);
