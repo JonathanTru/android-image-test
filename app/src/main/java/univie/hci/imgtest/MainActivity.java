@@ -13,11 +13,13 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Seat[] seats;
     private ImageView seatingChart;
+    private TextView debug;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 new Seat(new Point(20, 90), new Point(90, 140), "bottomLeft")
         };
 
+        debug = (TextView) this.findViewById(R.id.debug);
         seatingChart = (ImageView) this.findViewById(R.id.seatingChart);
 
 
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         if( clickedSeat != null){
             Log.w("SeatInfo", "Seat got clicked! " + clickedSeat);
-            Toast.makeText(this, "you selected " + clickedSeat.getName(), Toast.LENGTH_SHORT).show();
+            debug.setText("you selected " + clickedSeat.getName());
 
         } else {
             Log.w("SeatInfo", "NO SEAT GOT CLICKED!");
